@@ -1,15 +1,15 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+// import { makeStyles } from "@material-ui/styles";
 import MUIDataTable from "mui-datatables";
 
 // components
 import PageTitle from "../../components/PageTitle";
-import Widget from "../../components/Widget";
-import Table from "../dashboard/components/Table/Table";
+// import Widget from "../../components/Widget";
+// import Table from "../dashboard/components/Table/Table";
 
 // data
-import mock from "../dashboard/mock";
+// import mock from "../dashboard/mock";
 
 const datatableData = [
   ["Joe James", "Example Inc.", "Yonkers", "NY"],
@@ -31,14 +31,14 @@ const datatableData = [
   ["Gaston Festus", "Example Inc.", "Tampa", "FL"],
 ];
 
-const useStyles = makeStyles(theme => ({
-  tableOverflow: {
-    overflow: 'auto'
-  }
-}))
+// const useStyles = makeStyles(theme => ({
+//   tableOverflow: {
+//     overflow: 'auto'
+//   }
+// }))
 
 export default function Tables() {
-  const classes = useStyles();
+  // const classes = useStyles();
   return (
     <>
       <PageTitle title="Orders" />

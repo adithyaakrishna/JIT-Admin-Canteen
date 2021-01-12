@@ -6,9 +6,9 @@ import {
   // FormatSize as TypographyIcon,
   FilterNone as UIElementsIcon,
   BorderAll as TableIcon,
-  QuestionAnswer as SupportIcon,
-  LibraryBooks as LibraryIcon,
-  HelpOutline as FAQIcon,
+  // QuestionAnswer as SupportIcon,
+  // LibraryBooks as LibraryIcon,
+  // HelpOutline as FAQIcon,
   ArrowBack as ArrowBackIcon,
 } from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
@@ -21,7 +21,7 @@ import useStyles from "./styles";
 
 // components
 import SidebarLink from "./components/SidebarLink/SidebarLink";
-import Dot from "./components/Dot";
+// import Dot from "./components/Dot";
 
 // context
 import {
