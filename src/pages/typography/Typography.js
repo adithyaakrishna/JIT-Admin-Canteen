@@ -1,125 +1,315 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
+import Button from '@material-ui/core/Button';
 
 // styles
 import useStyles from "./styles";
+//import { makeStyles } from '@material-ui/core/styles';
 
 // components
 import PageTitle from "../../components/PageTitle";
 import Widget from "../../components/Widget";
 import { Typography } from "../../components/Wrappers";
+import TextField from '@material-ui/core/TextField';
 
-export default function TypographyPage() {
+export default function EditPage() {
   var classes = useStyles();
+  const [tod, setTod] = React.useState('TOD');
+  const [foodCategory, setfoodCategory] = React.useState('FC');
+  const timeofTheDay = [
+    {
+      value: 'Breakfast',
+      label: 'Breakfast',
+    },
+    {
+      value: 'Lunch',
+      label: 'Lunch',
+    },
+    {
+      value: 'Snacks',
+      label: 'Snacks',
+    },
+  ];
+  const foodCat = [
+    {
+      value: 'Breakfast',
+      label: 'Breakfast',
+    },
+    {
+      value: 'Lunch',
+      label: 'Lunch',
+    },
+    {
+      value: 'Snacks',
+      label: 'Snacks',
+    },
+  ];
+
+  const handleChange = (event) => {
+    setTod(event.target.value);
+  };
+
+  const handleChange2 = (event) => {
+    setfoodCategory(event.target.value);
+  };
 
   return (
     <>
-      <PageTitle title="Typography" />
+      <PageTitle title="Edit Items" />
       <Grid container spacing={4}>
         <Grid item xs={12} md={6}>
-          <Widget title="Headings" disableWidgetMenu>
+          <Widget title="" disableWidgetMenu>
+            <Typography
+              variant="h3"
+              color="primary"
+              className={classes.text}
+            >
+              Add Food Items
+            </Typography>
             <div className={classes.dashedBorder}>
-              <Typography variant="h1" className={classes.text}>
-                h1. Heading
-              </Typography>
-              <Typography variant="h2" className={classes.text}>
-                h2. Heading
-              </Typography>
-              <Typography variant="h3" className={classes.text}>
-                h3. Heading
-              </Typography>
-              <Typography variant="h4" className={classes.text}>
-                h4. Heading
-              </Typography>
-              <Typography variant="h5" className={classes.text}>
-                h5. Heading
-              </Typography>
-              <Typography variant="h6">h6. Heading</Typography>
+              <TextField
+                id="outlined-full-width"
+                label="Day"
+                style={{ margin: 10, paddingRight: "25%" }}
+                placeholder="Monday"
+                helperText="Enter The Day"
+                fullWidth
+                margin="normal"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
+              />
+              <TextField
+                id="outlined-full-width"
+                label="Food Item"
+                style={{ margin: 10, paddingRight: "25%" }}
+                placeholder="Idly Vada"
+                helperText="Enter The Food Item"
+                fullWidth
+                margin="normal"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
+              />
+              <TextField
+                id="outlined-select-currency-native"
+                style={{ margin: 10, paddingRight: "25%" }}
+                select
+                label="Time of The Day"
+                value={tod}
+                onChange={handleChange}
+                SelectProps={{
+                  native: true,
+                }}
+                helperText="Select Time of The Day"
+                variant="outlined"
+              >
+                {timeofTheDay.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </TextField>
+              {/* <br /> */}
+              <TextField
+                id="outlined-select-currency-native"
+                style={{ margin: 10, paddingRight: "25%" }}
+                select
+                label="Food Category"
+                value={foodCategory}
+                onChange={handleChange2}
+                SelectProps={{
+                  native: true,
+                }}
+                helperText="Select Food Category"
+                variant="outlined"
+              >
+                {foodCat.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </TextField>
+              <TextField
+                id="outlined-full-width"
+                label="Price"
+                style={{ margin: 10, paddingRight: "25%" }}
+                placeholder="Rs."
+                helperText="Enter The Price of The Food Item"
+                fullWidth
+                margin="normal"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
+              />
+              <Button variant="contained" color="primary" style={{ marginRight: 10, margin: 10}}>
+                Save
+              </Button>
+              <Button variant="contained" color="secondary" style={{ marginRight: 10, margin: 10 }}>
+                Delete
+              </Button>
             </div>
           </Widget>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Widget title="Typography Colors" disableWidgetMenu>
+          <Widget title="" disableWidgetMenu>
+            <Typography
+              variant="h3"
+              color="secondary"
+              className={classes.text}
+            >
+              Add Daily Specials
+            </Typography>
             <div className={classes.dashedBorder}>
-              <Typography variant="h1" color="primary" className={classes.text}>
-                h1. Heading
-              </Typography>
-              <Typography variant="h2" color="success" className={classes.text}>
-                h2. Heading
-              </Typography>
-              <Typography
-                variant="h3"
+              <TextField
+                id="outlined-full-width"
+                label="Day"
                 color="secondary"
-                className={classes.text}
-              >
-                h3. Heading
-              </Typography>
-              <Typography variant="h4" color="warning" className={classes.text}>
-                h4. Heading
-              </Typography>
-              <Typography
-                variant="h5"
-                color="primary"
-                colorBrightness="light"
-                className={classes.text}
-              >
-                h5. Heading
-              </Typography>
-              <Typography variant="h6" color="info">
-                h6. Heading
-              </Typography>
+                style={{ margin: 10, paddingRight: "25%" }}
+                placeholder="Enter Day ID"
+                helperText="1 or 2 or 3"
+                fullWidth
+                margin="normal"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
+              />
+
+              <TextField
+                id="outlined-full-width"
+                label="Day"
+                color="secondary"
+                style={{ margin: 10, paddingRight: "25%" }}
+                placeholder="Monday"
+                helperText="Enter The Day"
+                fullWidth
+                margin="normal"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
+              />
+              
+              <TextField
+                id="outlined-full-width"
+                label="Food Item"
+                color="secondary"
+                style={{ margin: 10, paddingRight: "25%" }}
+                placeholder="Food Item"
+                helperText="Food Item"
+                fullWidth
+                margin="normal"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
+              />
+              
+              <TextField
+                id="outlined-full-width"
+                label="Price"
+                color="secondary"
+                style={{ margin: 10, paddingRight: "25%" }}
+                placeholder="Rs."
+                helperText="Enter The Price of The Food Item"
+                fullWidth
+                margin="normal"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
+              />
+              <Button variant="contained" color="primary" style={{ marginRight: 10, margin: 10 }}>
+                Save
+              </Button>
+              <Button variant="contained" color="secondary" style={{ marginRight: 10, margin: 10 }}>
+                Delete
+              </Button>
             </div>
           </Widget>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Widget title="Basic Text Settings" disableWidgetMenu>
+          <Widget title="" disableWidgetMenu>
+            <Typography
+              variant="h3"
+              color="success"
+              className={classes.text}
+            >
+              Edit Blog Contents
+            </Typography>
             <div className={classes.dashedBorder}>
-              <Typography className={classes.text}>Basic text</Typography>
-              <Typography className={classes.text} weight="light">
-                Basic light text
-              </Typography>
-              <Typography className={classes.text} weight="medium">
-                Basic medium text
-              </Typography>
-              <Typography className={classes.text} weight="bold">
-                Basic bold text
-              </Typography>
-              <Typography className={classes.text}>
-                BASIC UPPERCASE TEXT
-              </Typography>
-              <Typography className={classes.text}>
-                basic lowercase text
-              </Typography>
-              <Typography className={classes.text}>
-                Basic Capitalized Text
-              </Typography>
-              <Typography>
-                <i>Basic Cursive Text</i>
-              </Typography>
-            </div>
+              <TextField
+                id="outlined-full-width"
+                label="Blog Post"
+                color="success"
+                style={{ margin: 10, paddingRight: "25%" }}
+                placeholder="Blog Post Number"
+                helperText="1 or 2 or 3"
+                fullWidth
+                margin="normal"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
+              />
+              <TextField
+                id="outlined-full-width"
+                label="Day"
+                color="success"
+                style={{ margin: 10, paddingRight: "25%" }}
+                placeholder="Monday"
+                helperText="Enter The Day"
+                fullWidth
+                margin="normal"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
+              />
+
+              <TextField
+                id="outlined-full-width"
+                label="Food Item"
+                color="success"
+                style={{ margin: 10, paddingRight: "25%" }}
+                placeholder="Food Item"
+                helperText="Food Item"
+                fullWidth
+                margin="normal"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
+              />
+
+              <TextField
+                id="outlined-full-width"
+                label="Price"
+                color="success"
+                style={{ margin: 10, paddingRight: "25%" }}
+                placeholder="Rs."
+                helperText="Enter The Price of The Food Item"
+                fullWidth
+                margin="normal"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
+              />
+              <Button variant="contained" color="primary" style={{ marginRight: 10, margin: 10 }}>
+                Save
+              </Button>
+              <Button variant="contained" color="secondary" style={{ marginRight: 10, margin: 10 }}>
+                Delete
+              </Button>
+            </div>              
           </Widget>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <Widget title="Text Size" disableWidgetMenu>
-            <div className={classes.dashedBorder}>
-              <Typography className={classes.text} size="sm">
-                Heading Typography SM Font Size
-              </Typography>
-              <Typography className={classes.text}>
-                Heading Typography Regular Font Size
-              </Typography>
-              <Typography className={classes.text} size="md">
-                Heading Typography MD Font Size
-              </Typography>
-              <Typography className={classes.text} size="xl">
-                Heading Typography XL Font Size
-              </Typography>
-              <Typography className={classes.text} size="xxl">
-                Heading Typography XXL Font Size
-              </Typography>
-            </div>
-          </Widget>
-        </Grid>
+        
       </Grid>
     </>
   );
