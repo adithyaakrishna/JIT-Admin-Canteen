@@ -1,4 +1,5 @@
 import React from "react";
+import { auth } from "../services/firebase";
 
 var UserStateContext = React.createContext();
 var UserDispatchContext = React.createContext();
@@ -53,24 +54,32 @@ function loginUser(dispatch, login, password, history, setIsLoading, setError) {
   setError(false);
   setIsLoading(true);
 
-  if (!!login && !!password) {
-    setTimeout(() => {
-      localStorage.setItem('id_token', 1)
+  auth().signInWithEmailAndPassword(login, password)
+    .then((gResponse) => {
+      console.log(gResponse); //response from firebase if success
+
+      localStorage.setItem('id_token', gResponse.refreshToken)
       setError(null)
       setIsLoading(false)
       dispatch({ type: 'LOGIN_SUCCESS' })
 
       history.push('/app/dashboard')
-    }, 2000);
-  } else {
-    dispatch({ type: "LOGIN_FAILURE" });
-    setError(true);
-    setIsLoading(false);
-  }
+    })
+    .catch(function (error) {
+      // Handle Errors here.
+      prompt(error);
+      dispatch({ type: "LOGIN_FAILURE" });
+      setError(true);
+      setIsLoading(false);
+    });
 }
 
 function signOut(dispatch, history) {
-  localStorage.removeItem("id_token");
-  dispatch({ type: "SIGN_OUT_SUCCESS" });
-  history.push("/login");
+  auth().signOut().then(() => {
+    localStorage.removeItem("id_token");
+    dispatch({ type: "SIGN_OUT_SUCCESS" });
+    history.push("/login");
+  }).catch((error) => {
+    //handler signout error here
+  })
 }

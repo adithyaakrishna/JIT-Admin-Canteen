@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import {
   Grid,
   CircularProgress,
@@ -10,14 +11,13 @@ import {
   Fade,
 } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
-import classnames from "classnames";
+
 
 // styles
 import useStyles from "./styles";
 
 // logo
 import logo from "./logo.svg";
-import google from "../../images/google.svg";
 
 // context
 import { useUserDispatch, loginUser } from "../../context/UserContext";
@@ -27,13 +27,13 @@ function Login(props) {
 
   // global
   var userDispatch = useUserDispatch();
-
+  
   // local
   var [isLoading, setIsLoading] = useState(false);
   var [error, setError] = useState(null);
   var [activeTabId, setActiveTabId] = useState(0);
   var [nameValue, setNameValue] = useState("");
-  var [loginValue, setLoginValue] = useState("admin@flatlogic.com");
+  var [loginValue, setLoginValue] = useState("aadithya794@gmail.com");
   var [passwordValue, setPasswordValue] = useState("password");
 
   return (
@@ -52,12 +52,11 @@ function Login(props) {
             centered
           >
             <Tab label="Login" classes={{ root: classes.tab }} />
-            
           </Tabs>
           {activeTabId === 0 && (
             <React.Fragment>
               <Typography variant="h2" className={classes.greeting}>
-                Good Morning, User
+                Hello Admin :)
               </Typography>
               {/* <Button size="large" className={classes.googleButton}>
                 <img src={google} alt="google" className={classes.googleIcon} />
@@ -127,7 +126,15 @@ function Login(props) {
                   >
                     Login
                   </Button>
+                    
                 )}
+                <Button
+                  color="primary"
+                  size="large"
+                  className={classes.forgetButton}
+                >
+                  Forgot Password?
+                </Button>
                 
               </div>
             </React.Fragment>
@@ -239,7 +246,7 @@ function Login(props) {
           )}
         </div>
         <Typography color="primary" className={classes.copyright}>
-        © {new Date().getFullYear()} <a style={{ textDecoration: 'none', color: 'inherit' }} href="#" rel="noopener noreferrer" target="_blank">DAN</a>. All rights reserved.
+        © {new Date().getFullYear()} <a style={{ textDecoration: 'none', color: 'inherit' }} href="https://jit-canteen-admin-netlify.app" rel="noopener noreferrer" target="_blank">DAN</a>. All rights reserved.
         </Typography>
       </div>
     </Grid>
