@@ -6,8 +6,8 @@ import {
   withRouter,
 } from "react-router-dom";
 import classnames from "classnames";
-import {Box, IconButton, Link} from '@material-ui/core'
-import Icon from '@mdi/react'
+import {Box, IconButton, Link} from '@material-ui/core';
+import Icon from '@mdi/react';
 
 //icons
 import {
@@ -25,10 +25,11 @@ import Sidebar from "../Sidebar";
 
 // pages
 import Dashboard from "../../pages/dashboard";
-import Typography from "../../pages/typography";
+import EditPage from "../../pages/typography";
 import Notifications from "../../pages/notifications";
 import Maps from "../../pages/maps";
 import Tables from "../../pages/tables";
+import Tables2 from "../../pages/tables2";
 import Icons from "../../pages/icons";
 import Charts from "../../pages/charts";
 
@@ -54,8 +55,9 @@ function Layout(props) {
             <div className={classes.fakeToolbar} />
             <Switch>
               <Route path="/app/dashboard" component={Dashboard} />
-              <Route path="/app/typography" component={Typography} />
-              <Route path="/app/tables" component={Tables} />
+              <Route path="/app/edit" component={EditPage} />
+              <Route path="/app/items" component={Tables2} />
+              <Route path="/app/orders" component={Tables} />
               <Route path="/app/notifications" component={Notifications} />
               <Route
                 exact
