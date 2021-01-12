@@ -16,17 +16,24 @@ import {
   ArrowBack as ArrowBackIcon,
 } from "@material-ui/icons";
 import classNames from 'classnames';
+import * as Icons from "@material-ui/icons";
 
 import SidebarLink from './components/SidebarLink/SidebarLinkContainer';
 import Dot from './components/Dot';
 
 const structure = [
   { id: 0, label: 'Dashboard', link: '/app/dashboard', icon: <HomeIcon /> },
-  { id: 1, label: 'Typography', link: '/app/typography', icon: <TypographyIcon /> },
-  { id: 2, label: 'Tables', link: '/app/tables', icon: <TableIcon /> },
-  { id: 3, label: 'Notifications', link: '/app/notifications', icon: <NotificationsIcon />},
+  { id: 1, label: "Orders", link: "/app/orders", icon: <TableIcon /> },
+  { id: 2, label: "Current Items", link: "/app/items", icon: <Icons.TableChart /> },
   {
-    id: 4,
+    id: 3,
+    label: "Edit Content",
+    link: "/app/edit",
+    icon: <Icons.Edit />,
+  },
+  { id: 4, label: 'Notifications', link: '/app/notifications', icon: <NotificationsIcon />},
+  {
+    id: 5,
     label: 'UI Elements',
     link: '/app/ui',
     icon: <UIElementsIcon />,
@@ -36,16 +43,8 @@ const structure = [
       { label: 'Maps', link: '/app/ui/maps' },
     ],
   },
-  { id: 5, type: 'divider' },
-  { id: 6, type: 'title', label: 'HELP' },
-  { id: 7, label: 'Library', link: '', icon: <LibraryIcon /> },
-  { id: 8, label: 'Support', link: '', icon: <SupportIcon /> },
-  { id: 9, label: 'FAQ', link: '', icon: <FAQIcon />},
-  { id: 10, type: 'divider' },
-  { id: 11, type: 'title', label: 'PROJECTS' },
-  { id: 12, label: 'My recent', link: '', icon: <Dot size="small" color="secondary" /> },
-  { id: 13, label: 'Starred', link: '', icon: <Dot size="small" color="primary" /> },
-  { id: 14, label: 'Background', link: '', icon: <Dot size="small" color="secondary" /> },
+  { id: 6, type: 'divider' },
+  
 ];
 
 const SidebarView = ({ classes, theme, toggleSidebar, isSidebarOpened, isPermanent, location }) => {
