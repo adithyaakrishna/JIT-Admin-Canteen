@@ -1,4 +1,7 @@
 import firebase from 'firebase'
+import 'firebase/auth'
+import 'firebase/firestore'
+import 'firebase/storage'
 
 const firebaseConfig = {
     apiKey: "AIzaSyBzh1Q31buPcqTuie6WNLyFmzrumVRjn_M",
@@ -11,21 +14,10 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-        // User is signed in.
-        console.log(user);
-        // ...
-    } else {
-        // User is signed out.
-        console.log("User is signed out");
-        // ...
-    }
-}
-);
-
 
 
 export const auth = firebase.auth;
 
 export const firestore = firebase.firestore();
+
+export const storage = firebase.storage();

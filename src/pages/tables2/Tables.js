@@ -8,8 +8,6 @@ import PageTitle from "../../components/PageTitle";
 // import Widget from "../../components/Widget";
 // import Table from "../dashboard/components/Table/Table";
 
-// data
-// import mock from "../dashboard/mock";
 
 const datatableData = [
   ["Joe James", "Example Inc.", "Yonkers", "NY"],
@@ -31,17 +29,10 @@ const datatableData = [
   ["Gaston Festus", "Example Inc.", "Tampa", "FL"],
 ];
 
-// const useStyles = makeStyles(theme => ({
-//   tableOverflow: {
-//     overflow: 'auto'
-//   }
-// }))
-
 export default function Tables() {
-  // const classes = useStyles();
   return (
     <>
-      <PageTitle title="Orders" />
+      <PageTitle title="Current Items" />
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <MUIDataTable

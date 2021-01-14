@@ -13,6 +13,7 @@ import {
 import { withRouter } from "react-router-dom";
 
 
+
 // styles
 import useStyles from "./styles";
 
@@ -33,8 +34,8 @@ function Login(props) {
   var [error, setError] = useState(null);
   var [activeTabId, setActiveTabId] = useState(0);
   var [nameValue, setNameValue] = useState("");
-  var [loginValue, setLoginValue] = useState("aadithya794@gmail.com");
-  var [passwordValue, setPasswordValue] = useState("password");
+  var [loginValue, setLoginValue] = useState("Login");
+  var [passwordValue, setPasswordValue] = useState("Password");
 
   return (
     <Grid container className={classes.container}>
