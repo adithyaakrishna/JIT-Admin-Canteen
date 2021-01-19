@@ -145,7 +145,7 @@ export default function EditPage() {
               <TextField
                 id="outlined-full-width"
                 label="Day"
-                value={ebc}
+                value={afiDay}
                 onChange={(e) => { setafiDay(e.target.value) }}
                 style={{ margin: 10, paddingRight: "25%" }}
                 placeholder="Monday"
