@@ -12,23 +12,9 @@ import Table from "../dashboard/components/Table/Table";
 import mock from "../dashboard/mock";
 
 const datatableData = [
-  ["Joe James", "Example Inc.", "Yonkers", "NY"],
-  ["John Walsh", "Example Inc.", "Hartford", "CT"],
-  ["Bob Herm", "Example Inc.", "Tampa", "FL"],
-  ["James Houston", "Example Inc.", "Dallas", "TX"],
-  ["Prabhakar Linwood", "Example Inc.", "Hartford", "CT"],
-  ["Kaui Ignace", "Example Inc.", "Yonkers", "NY"],
-  ["Esperanza Susanne", "Example Inc.", "Hartford", "CT"],
-  ["Christian Birgitte", "Example Inc.", "Tampa", "FL"],
-  ["Meral Elias", "Example Inc.", "Hartford", "CT"],
-  ["Deep Pau", "Example Inc.", "Yonkers", "NY"],
-  ["Sebastiana Hani", "Example Inc.", "Dallas", "TX"],
-  ["Marciano Oihana", "Example Inc.", "Yonkers", "NY"],
-  ["Brigid Ankur", "Example Inc.", "Dallas", "TX"],
-  ["Anna Siranush", "Example Inc.", "Yonkers", "NY"],
-  ["Avram Sylva", "Example Inc.", "Hartford", "CT"],
-  ["Serafima Babatunde", "Example Inc.", "Tampa", "FL"],
-  ["Gaston Festus", "Example Inc.", "Tampa", "FL"],
+  ["Adithya Krishna", "adi@gmail.com", "9482858070", "Coffee"],
+  ["Deepthi", "deepthi@gmail.com", "9113952116", "Idly"],
+  ["Niveditha", "niveda@gmail.com", "1234567890", "Lays"],
 ];
 
 const useStyles = makeStyles(theme => ({
@@ -43,12 +29,6 @@ export default function Tables() {
     <>
       <PageTitle title="Orders" />
       <Grid container spacing={4}>
-        <Grid item xs={12}>
-          <Widget title="Order Status" upperTitle noBodyPadding bodyClass={classes.tableOverflow}>
-            <Table data={mock.table} />
-          </Widget>
-        </Grid>
-
         <Grid item xs={12}>
           <MUIDataTable
             title="All Orders"

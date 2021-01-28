@@ -10,23 +10,10 @@ import PageTitle from "../../components/PageTitle";
 
 
 const datatableData = [
-  ["Joe James", "Example Inc.", "Yonkers", "NY"],
-  ["John Walsh", "Example Inc.", "Hartford", "CT"],
-  ["Bob Herm", "Example Inc.", "Tampa", "FL"],
-  ["James Houston", "Example Inc.", "Dallas", "TX"],
-  ["Prabhakar Linwood", "Example Inc.", "Hartford", "CT"],
-  ["Kaui Ignace", "Example Inc.", "Yonkers", "NY"],
-  ["Esperanza Susanne", "Example Inc.", "Hartford", "CT"],
-  ["Christian Birgitte", "Example Inc.", "Tampa", "FL"],
-  ["Meral Elias", "Example Inc.", "Hartford", "CT"],
-  ["Deep Pau", "Example Inc.", "Yonkers", "NY"],
-  ["Sebastiana Hani", "Example Inc.", "Dallas", "TX"],
-  ["Marciano Oihana", "Example Inc.", "Yonkers", "NY"],
-  ["Brigid Ankur", "Example Inc.", "Dallas", "TX"],
-  ["Anna Siranush", "Example Inc.", "Yonkers", "NY"],
-  ["Avram Sylva", "Example Inc.", "Hartford", "CT"],
-  ["Serafima Babatunde", "Example Inc.", "Tampa", "FL"],
-  ["Gaston Festus", "Example Inc.", "Tampa", "FL"],
+  ["Idly", "South-Indian", "15 Plates", "₹30"],
+  ["Coffee", "Beverage", "20", "₹10"],
+  ["Tea", "Beverage", "18", "₹10"],
+  ["Lays", "Snack", "Tampa", "₹10"],
 ];
 
 export default function Tables() {
@@ -38,7 +25,7 @@ export default function Tables() {
           <MUIDataTable
             title="All Orders"
             data={datatableData}
-            columns={["Name", "Email", "Phone", "Order", "Date"]}
+            columns={["Food", "Type", "Quantity", "Price"]}
             options={{
               filterType: "checkbox",
             }}

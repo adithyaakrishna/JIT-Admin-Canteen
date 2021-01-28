@@ -42,23 +42,23 @@ const structure = [
   },
   
   
-  {
-    id: 4,
-    label: "Notifications",
-    link: "/app/notifications",
-    icon: <NotificationsIcon />,
-  },
-  {
-    id: 5,
-    label: "UI Elements",
-    link: "/app/ui",
-    icon: <UIElementsIcon />,
-    children: [
-      { label: "Icons", link: "/app/ui/icons" },
-      { label: "Charts", link: "/app/ui/charts" },
-      { label: "Maps", link: "/app/ui/maps" },
-    ],
-  },
+  // {
+  //   id: 4,
+  //   label: "Notifications",
+  //   link: "/app/notifications",
+  //   icon: <NotificationsIcon />,
+  // },
+  // {
+  //   id: 5,
+  //   label: "UI Elements",
+  //   link: "/app/ui",
+  //   icon: <UIElementsIcon />,
+  //   children: [
+  //     { label: "Icons", link: "/app/ui/icons" },
+  //     { label: "Charts", link: "/app/ui/charts" },
+  //     { label: "Maps", link: "/app/ui/maps" },
+  //   ],
+  // },
   { id: 6, type: "divider" },
   
 ];

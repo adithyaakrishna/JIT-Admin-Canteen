@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Grid } from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 
@@ -16,7 +16,6 @@ import SaveIcon from '@material-ui/icons/Save';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 import {auth, firestore, storage} from '../../services/firebase'
-import FileUploader from 'react-firebase-file-uploader'
 
 export default function EditPage() {
   var classes = useStyles();
@@ -50,12 +49,14 @@ export default function EditPage() {
     },
   ];
 
+  const afiImageInput = useRef();
+
   var [afiDay, setafiDay] = useState("");
   var [afiFood, setafiFood] = useState("");
   var [afiTod, setafiTod] = useState(timeofTheDay[0].value);
   var [afiFoodCat, setafiFoodCat] = useState(foodCat[0].value);
   var [afiPrice, setafiPrice] = useState("");
-  var [afiImageURL, setAfiImageURL] = useState("");
+  var [afiImage, setAfiImage] = useState(null);
 
   var [adsDayID, setadsDayID] = useState("");
   var [adsDay, setadsDay] = useState("");
@@ -68,16 +69,6 @@ export default function EditPage() {
   var [ebcTitle, setebcTitle] = useState("");
   var [ebcDesc, setebcDesc] = useState("");
   var [ebcAuthor, setebcAuthor] = useState("");
-
-  const handleUploadStart = () => {console.log("Upload Started")};
-  const handleProgress = progress => { console.log("Upload Started") };
-  const handleUploadError = error => {
-     console.log(error) 
-  };
-  const handleUploadSuccess = filename => {
-    console.log(filename)
-    storage.ref("afiImages").child(filename).getDownloadURL().then((url) => {setAfiImageURL(url)})
-  };
 
   const handleEbcSubmit = async () => {
     firestore.collection("blogContent").add({
@@ -96,36 +87,54 @@ export default function EditPage() {
   }
 
   const handleAdsSubmit = async() => {
-    firestore.collection("dailySpecials").add({
-      dayID: adsDayID,
-      day: adsDay,
-      food: adsFood,
-      desc: adsDesc,
-      price: adsPrice
-    }).then(() => {
-      setadsDayID("");
-      setadsDay("");
-      setadsFood("");
-      setadsDesc("");
-      setadsPrice("")
+    firestore.collection("dailySpecials").where("dayID","==",adsDayID).onSnapshot(async(snapshot) => {
+      await firestore.collection("dailySpecials").doc(snapshot.docs[0].id).update({
+        day: adsDay,
+        foodItem: adsFood,
+        price: adsPrice,
+        description: adsDesc
+      }).then(() => {
+        setadsDayID("")
+        setadsDay("")
+        setadsFood("")
+        setadsDesc("")
+        setadsPrice("")
+      }).catch((err) => {
+        console.log(err.message)
+      })
     })
   }
 
   const handleAfiSubmit = async () => {
-    firestore.collection("foodItems").add({
-      day: afiDay,
-      foodItem: afiFood,
-      timeofTheDay: afiTod,
-      foodCat: afiFoodCat,
-      price: afiPrice,
-      imageURL: afiImageURL
-    }).then(() => {
-      setafiDay("");
-      setafiFood("");
-      setafiFoodCat(foodCat[0].value);
-      setafiPrice("");
-      setafiTod(timeofTheDay[0].value)
+
+    storage.ref(`afiImages/${afiImage}`).put(afiImage).then((snapshot) => {
+      snapshot.ref.getDownloadURL().then(async(url) => {
+        await firestore.collection("foodItems").add({
+          day: afiDay,
+          foodItem: afiFood,
+          timeofTheDay: afiTod,
+          foodCat: afiFoodCat,
+          price: afiPrice,
+          imageURL: url
+        }).then(() => {
+          setafiDay("");
+          setafiFood("");
+          setafiFoodCat(foodCat[0].value);
+          setafiPrice("");
+          setafiTod(timeofTheDay[0].value)
+          afiImageInput.current = ""
+        })
+      })
     })
+
+    
+  }
+
+  const handleAfiImageChange = async(e) => {
+    if(e.target.files[0]){
+      const image = e.target.files[0];
+      setAfiImage(image)
+    }
   }
 
   return (
@@ -226,16 +235,7 @@ export default function EditPage() {
                 }}
                 variant="outlined"
               />
-              <FileUploader
-                accept="image/*"
-                name="avatar"
-                randomizeFilename
-                storageRef={storage.ref("afiImages")}
-                onUploadStart={handleUploadStart}
-                onUploadError={handleUploadError}
-                onUploadSuccess={handleUploadSuccess}
-                onProgress={handleProgress}
-              />
+              <input type = 'file' onChange = {handleAfiImageChange} ref = {afiImageInput}></input>
               <br />
               <Button
                 variant="contained"
