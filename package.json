@@ -14,7 +14,7 @@
     "@material-ui/styles": "^4.10.0",
     "@mdi/js": "^5.8.55",
     "@mdi/react": "^1.4.0",
-    "apexcharts": "^3.20.0",
+    "apexcharts": "^3.32.1",
     "classnames": "^2.2.6",
     "firebase": "^8.2.2",
     "font-awesome": "^4.7.0",
