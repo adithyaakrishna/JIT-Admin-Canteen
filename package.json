@@ -16,7 +16,7 @@
     "@mdi/react": "^1.4.0",
     "apexcharts": "^3.20.0",
     "classnames": "^2.2.6",
-    "firebase": "^8.2.2",
+    "firebase": "^9.6.3",
     "font-awesome": "^4.7.0",
     "mui-datatables": "^3.4.1",
     "react": "^16.13.1",
