@@ -1,2 +1,7 @@
 name: Release Drafter
 uses: release-drafter/release-drafter@v5.17.6
+
+on:
+  push:
+    branches:
+      - master
