@@ -9,6 +9,7 @@ on:
 
 jobs:
   update_release_draft:
+    if: github.repository == 'adithyaakrishna/JIT-Canteen-Admin'
     runs-on: ubuntu-latest
     steps:
       - uses: release-drafter/release-drafter@v5
