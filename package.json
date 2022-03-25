@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@babel/helper-call-delegate": "^7.11.4",
-    "prettier": "^2.6.0"
+    "prettier": "^2.6.1"
   },
   "guppy": {
     "id": "d8c0f430-57c5-11eb-acd6-133efb8b7fd8",
