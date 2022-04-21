@@ -6,8 +6,8 @@ jobs:
   check-pr-head-sha:
     runs-on: ubuntu-latest
     steps:
-    - name: GET PR HEAD
+    - name: GET PR Head
       env:
-        PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        PR_HEAD_SHA_VALUE: ${{ github.event.pull_request.head.sha }}
       run: |
-        echo The HEAD SHA of this pull request is $PR_HEAD_SHA
+        echo This PRs Head SHA Value is $PR_HEAD_SHA_VALUE
