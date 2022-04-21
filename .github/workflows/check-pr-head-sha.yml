@@ -1,7 +1,7 @@
 name: Check PR Head SHA Value
-
+ 
 on: pull_request
-
+ 
 jobs:
   check-pr-head-sha:
     runs-on: ubuntu-latest
@@ -9,5 +9,6 @@ jobs:
     - name: GET PR Head
       env:
         PR_HEAD_SHA_VALUE: ${{ github.event.pull_request.head.sha }}
+        PR_BASE_SHA_VALUE: ${{ github.event.pull_request.base.sha }}
       run: |
-        echo This PRs Head SHA Value is $PR_HEAD_SHA_VALUE
+        echo This PRs Head SHA Value is $PR_HEAD_SHA_VALUE and Base SHA Value is $PR_BASE_SHA_VALUE
