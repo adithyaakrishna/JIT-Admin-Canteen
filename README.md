@@ -1,1 +1,1 @@
-# JIT-Canteen-Admin
+# JIT Canteen Admin
